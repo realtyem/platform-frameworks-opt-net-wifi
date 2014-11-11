@@ -3019,7 +3019,7 @@ public class WifiStateMachine extends StateMachine {
         if (countryCode != null && !countryCode.isEmpty()) {
             setCountryCode(countryCode, false);
         } else {
-            //use driver default
+            setCountryCode("JP", true); // open all channels
         }
     }
 
