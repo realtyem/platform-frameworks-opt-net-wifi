@@ -5934,6 +5934,9 @@ public class WifiStateMachine extends StateMachine implements WifiNative.WifiPno
                     /* set frequency band of operation */
                     setFrequencyBand();
                     mWifiNative.enableSaveConfig();
+                    if (mWifiConfigStore.enableAutoJoinWhenAssociated.get()) {
+                        mWifiNative.disconnect();
+                    }
                     mWifiConfigStore.loadAndEnableAllNetworks();
                     if (mWifiConfigStore.enableVerboseLogging.get() > 0) {
                         enableVerboseLogging(mWifiConfigStore.enableVerboseLogging.get());
