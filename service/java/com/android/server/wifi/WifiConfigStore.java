@@ -2792,8 +2792,9 @@ public class WifiConfigStore extends IpConfigStore {
 
         setVariables: {
             if (newNetwork == false ) {
-                savedConfig = mConfiguredNetworks.get(netId);
-                if (savedConfig != null) {
+                WifiConfiguration existingConfig = mConfiguredNetworks.get(netId);
+                if (existingConfig != null) {
+                    savedConfig = new WifiConfiguration(existingConfig);
                     readNetworkVariables(savedConfig);
                 }
             }
