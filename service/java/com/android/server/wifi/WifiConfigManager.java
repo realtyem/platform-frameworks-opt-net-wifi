@@ -1647,6 +1647,7 @@ public class WifiConfigManager {
 
         final Map<String, WifiConfiguration> configs = new HashMap<>();
         final SparseArray<Map<String, String>> networkExtras = new SparseArray<>();
+        mScanDetailCaches.clear();
         mLastPriority = mWifiConfigStore.loadNetworks(configs, networkExtras);
 
         readNetworkHistory(configs);
